@@ -1,25 +1,17 @@
-function multiplyBy()
-{
-        num1 = document.getElementById("firstNumber").value;
-        num2 = document.getElementById("secondNumber").value;
-        document.getElementById("result").innerHTML = num1 * num2;
-}
-
-function divideBy() 
-{ 
-        num1 = document.getElementById("firstNumber").value;
-        num2 = document.getElementById("secondNumber").value;
-        dofunction findDistinctPrimeFactors() {
+function findDistinctPrimeFactors() {
   let num = parseInt(document.getElementById("max").value);
   let factors = [];
-
+  
+  // Find all 2s that divide num
   while (num % 2 === 0) {
     if (!factors.includes(2)) {
       factors.push(2);
     }
     num = num / 2;
   }
-
+  
+  // num must be odd at this point. So we can skip one element
+  // (Note: i = i + 2)
   for (let i = 3; i <= Math.sqrt(num); i = i + 2) {
     // While i divides num, add i to factors and divide num
     while (num % i === 0) {
@@ -30,6 +22,8 @@ function divideBy()
     }
   }
   
+  // This condition is to handle the case when num is a prime number
+  // greater than 2
   if (num > 2) {
     if (!factors.includes(num)) {
       factors.push(num);
@@ -38,5 +32,4 @@ function divideBy()
   
   document.getElementById("result").innerHTML = "Distinct Prime Factors: " + factors.join(', ');
 }
-cument.getElementById("result").innerHTML = num1 / num2;
-}
+
